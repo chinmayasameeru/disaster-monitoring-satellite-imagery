@@ -1,0 +1,53 @@
+# Configuration for Disaster Monitoring via Satellite Imagery
+# All fields are optional unless noted. 
+# Real data sources that require NO authentication:
+#   - NASA POWER API (weather/climate)
+#   - CHIRPS (precipitation)
+#   - USGS Earthquake API (seismic activity)
+#   - GDACS (global disaster alerts)
+#   - OpenStreetMap Overpass (infrastructure, population)
+#   - NASA GIBS (satellite imagery WMTS)
+#
+# Data sources requiring authentication:
+#   - NASA Earthdata (register at https://urs.earthdata.nasa.gov)
+#   - Copernicus Data Space (register at https://dataspace.copernicus.eu)
+#   - Sentinel Hub (register at https://www.sentinel-hub.com)
+
+nasa_earthdata:
+  username: ""
+  password: ""
+  # Register at: https://urs.earthdata.nasa.gov
+
+copernicus:
+  username: ""
+  password: ""
+  # Register at: https://dataspace.copernicus.eu
+
+sentinel_hub:
+  client_id: ""
+  client_secret: ""
+  # Register at: https://www.sentinel-hub.com
+  # Free trial available with 30-day access
+
+# Alert configuration
+alert:
+  email:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    sender: ""
+    password: ""  # App password
+    recipients: []
+  webhook:
+    url: ""  # Slack/Discord webhook URL
+
+# Analysis parameters
+analysis:
+  drought:
+    spi_scale_months: 3  # 3-month SPI
+    drought_threshold: -1.0
+  flood:
+    ndwi_threshold: 0.3
+    tws_anomaly_threshold: 15.0
+  landslide:
+    slope_threshold_degrees: 15.0
+    curvature_threshold: 0.01

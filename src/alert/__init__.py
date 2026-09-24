@@ -1,0 +1,3 @@
+"""
+Alert notification module.
+"""
